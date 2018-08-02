@@ -29,7 +29,7 @@
     {{ end }}
   </ul>
 
-
+      {{ partial "allLanguages.html" . }}
       <ul class="navbar-nav ml-auto">
         {{ if (isset .Site.Params.social "facebook" ) }}
           <li>
