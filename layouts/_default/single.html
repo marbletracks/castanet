@@ -8,6 +8,9 @@
 
 <div class="row">
   <div class="col-md-12">
+    {{ if .Params.Image }}
+      <a href="{{ .Params.Image }}"><img src="{{ .Params.Thumbnail }}" /></a>
+    {{ end }}
     {{ .Content }}
   </div>
 </div>

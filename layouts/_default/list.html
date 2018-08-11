@@ -5,9 +5,9 @@
     {{ $paginator := .Paginate (where .Data.Pages "Type" .Section) }}
 
           {{ range .Paginator.Pages }}
-              <li><a href="{{ .Permalink }}" class = "section_title">{{.Title}}</a>
+              <li><a href="{{ .Permalink }}"><img src="{{ .Params.Thumbnail }}" /></a><a href="{{ .Permalink }}" class = "section_title">{{.Title}}</a>
                   <div>
-            <p>{{ .Description | markdownify }}</p>
+                    <p>{{ .Description | markdownify }}</p>
                   </div>
               </li>
           {{ end }}
