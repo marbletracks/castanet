@@ -15,18 +15,17 @@
         <div class="col-md-12">
           <nav>
             <ul class="pagination">
+              {{ if .NextInSection }}
+                <li class="page-item">
+                  <a href="{{.NextInSection.Permalink}}" class="page-link">
+                    <span aria-hidden="true">&larr;</span> Previous
+                  </a>
+                </li>
+              {{ end }}
               {{ if .PrevInSection }}
                 <li class="page-item">
                   <a href="{{.PrevInSection.Permalink}}" class="page-link">
-                    <span aria-hidden="true">&larr;</span>
-                    Previous</a>
-                </li>
-              {{ end }}
-              {{ if .NextInSection }}
-                <li class="page-item">
-                  <a href="{{.NextInSection.Permalink}}" class="page-link">Next
-                    <span aria-hidden="true">&rarr;</span>
-                  </a>
+                    Next <span aria-hidden="true">&rarr;</span></a>
                 </li>
               {{ end }}
             </ul>
