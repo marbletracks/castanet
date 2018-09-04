@@ -11,7 +11,9 @@
     {{ if ne .Params.episode_banner "" }}
       <div class = "row">
       <div class = "col">
-        <img src="{{ .Params.episode_banner | absURL }}" class="img-fluid episode_image"/>
+        <a href="{{ .Params.episode_banner | absURL }}">
+          <img src="{{ .Params.episode_banner | absURL }}" class="img-fluid episode_image"/>
+        </a>
       </div>
       </div>
       <div class = "row">
@@ -26,7 +28,9 @@
       {{- if ne .Params.episode_image "" -}}
         <div class="row">
           <div class="col-md-3">
-            <img src="{{ .Params.episode_image | absURL }}" class="img-fluid episode_image"/>
+            <a href="{{ .Params.episode_image | absURL }}">
+              <img src="{{ .Params.episode_image | absURL }}" class="img-fluid episode_image"/>
+            </a>
           </div>
           <div class="col-md-8">
             {{ .Description | markdownify }}
