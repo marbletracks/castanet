@@ -1,9 +1,8 @@
 {{- partial "jumbotron.html" . }}
 
 <section class="episode-list">
-
   {{/* thanks https://code.luasoftware.com/tutorials/hugo/hugo-scope-variable-in-template/ for $.Scratch */}}
-  {{ $.Scratch.Add "total_livestream_duration" 0 }}
+  {{ $.Scratch.Set "total_livestream_duration" 0 }}
   {{ range $.Site.Data.playlists.knownvideos.Videos }}
     {{ if eq .VideoType 1 }}
         {{ $.Scratch.Add "total_livestream_duration" .Duration }}
@@ -14,7 +13,6 @@
   {{ $Duration_minutes      := div $Duration_seconds 60.0 }}
   {{ $Duration_hours        := div $Duration_minutes 60.0 }}
   {{ $Duration_days         := div $Duration_hours   24.0 }}
-
   <div class = "col episode-list-header">
     <h2 class = "episode-list-header">All Episodes ({{ printf "%.3v" $Duration_days }} days)</h2>
   </div>
