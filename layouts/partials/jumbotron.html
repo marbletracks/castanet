@@ -3,9 +3,9 @@
 <div class="jumbotron">
     <div class="row">
         <div class="col">
-            <p>
+            <h1>
                 {{ .Site.Params.description | markdownify }}
-              </p>
+              </h1>
         </div>
 
         {{ range $p:= $.Site.Params.authors }}
