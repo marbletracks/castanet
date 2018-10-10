@@ -7305,7 +7305,8 @@
  	background-size: cover;
  	background-image: url(https://b.robnugen.com/art/marble_track_3/creators/rob_nugen.jpg);
  	width: 100%;
- 	/* background-position-y: -20rem */
+ 	background-position-y: 50%;
+    background-repeat: no-repeat;
  }
  .jumbotron {
  	height: 80vh;
