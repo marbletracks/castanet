@@ -2,7 +2,7 @@
 
 <div class = "row">
   <div class = "col-md-12">
-    <h1>Guests of {{ .Site.Title }}</h1>
+    <h1>{{ .Site.Title }} Workers</h1>
   </div>
 </div>
 {{ with .Content }}
@@ -15,22 +15,22 @@
 <div class = "row">
   <div class = "col">
 
-    {{ $paginator := .Paginate (where .Data.Pages "Type" "guest") }}
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "workers") }}
     {{ range $paginator.Pages }}
         <div class="row person_row">
-          <div class="col-md-3">
+          <div class="col-md-2">
             {{- if and (isset .Params "thumbnail") (ne .Params.thumbnail "") -}}
               {{- if (eq (slicestr .Params.thumbnail 0 4) "http") -}}
-                <a href = "{{(printf "guest/%s" .File.BaseFileName) | absURL }}"><img alt="{{ .Title }}" src="{{ .Params.thumbnail }}" class="img-fluid" width="250px"></a>
+                <a href = "{{(printf "workers/%s" .File.BaseFileName) | absURL }}"><img alt="{{ .Title }}" src="{{ .Params.thumbnail }}" class="img-fluid" /></a>
                 {{- else -}}
-                <a href = "{{(printf "guest/%s" .File.BaseFileName) | absURL }}"><img alt="{{ .Title }}" src="{{ .Params.thumbnail | absURL}}" class="img-fluid" width="250px"></a>
+                <a href = "{{(printf "workers/%s" .File.BaseFileName) | absURL }}"><img alt="{{ .Title }}" src="{{ .Params.thumbnail | absURL}}" class="img-fluid" /></a>
               {{- end -}}
               {{- else -}}
-              <a href = "{{(printf "guest/%s" .File.BaseFileName) | absURL }}"><img alt="{{ .Title }}" src="{{ "img/guest/default-guest.png" | absURL }}" class="img-fluid" width="250px"/></a>
+              <a href = "{{(printf "workers/%s" .File.BaseFileName) | absURL }}"><img alt="{{ .Title }}" src="{{ "img/workers/default-workers.png" | absURL }}" class="img-fluid" /></a>
             {{- end -}}
           </div>
           <div class= "col-md-6">
-            <h3><a href = "{{(printf "guest/%s" .File.BaseFileName) | absURL }}">{{ .Title }}</a></h3>
+            <h3><a href = "{{(printf "workers/%s" .File.BaseFileName) | absURL }}">{{ .Title }}</a></h3>
             <p>{{ .Content | markdownify }}</p>
             {{ with .Params.Website }}
               <a href = "{{ . }}"><i class="fas fa-home fa-2x"></i></a>
