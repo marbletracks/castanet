@@ -1,0 +1,58 @@
+{{ define "main" }}
+<div class = "hero_container">
+<div class="row">
+  <div class="col">
+    <h1>{{ title .Title }}</h1>
+  </div>
+</div>
+
+<div class = "row">
+  <div class="col-lg-8">
+    <div class="row">
+      <div class="col-md-3">
+      {{- if and (isset .Params "thumbnail") (ne .Params.image "") -}}
+        {{- if (eq (slicestr .Params.image 0 4) "http") -}}
+          <img alt="{{ .Title }}" src="{{ .Params.image }}" class="img-fluid episode_image"/>
+          {{- else -}}
+          <img alt="{{ .Title }}" src="{{ .Params.image | absURL}}" class="img-fluid episode_image"/>
+        {{- end -}}
+        {{- else -}}
+        <img alt="{{ .Title }}" src="{{ "img/guest/default-guest.png" | absURL }}" class="img-fluid episode_image"/>
+      {{- end -}}
+      </div>
+      <div class="col-md-8">
+        <div class = "row">
+          <div class="col">
+            {{ .Content | markdownify }}
+          </div>
+        </div>
+        <div class = "row">
+          <div class = "col guest_social_icons">
+            {{ if .Params.YouTube }}
+              <a href="https://youtu.be/{{ .Params.YouTube}}">
+                <i class="fab fa-youtube-square fa-2x"></i>
+              </a>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+    <div class="col-lg-4">
+    <div class = "row">
+      <div class="col">
+        <h3>{{ .Title }} made by:</h3>
+        <div class="list-group guest_episode_list">
+              {{ $.Scratch.Set "who-made-this" .Params.workers }}
+              {{ range $page := where $.Site.Pages "Type" "workers" }}
+                {{ if in ($.Scratch.Get "who-made-this") $page.File.TranslationBaseName }}
+                  <a href = "{{.RelPermalink}}" class = "guest_page_episode_link list-group-item list-group-item-action">{{.Title}}</a>
+                {{ end }}
+              {{ end }}
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+</div>
+{{ end }}
