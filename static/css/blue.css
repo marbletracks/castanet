@@ -507,8 +507,8 @@
  	display: flex;
  	-ms-flex-wrap: wrap;
  	flex-wrap: wrap;
- 	margin-right: -15px;
- 	margin-left: -15px
+ 	margin-right: 0px;
+ 	margin-left: 0px
  }
  .form-check, .form-control, .form-control-file, .form-control-range, .form-text {
  	display: block
@@ -525,8 +525,8 @@
  		padding-left: 15px
  	}
  	.row {
- 		margin-right: -15px;
- 		margin-left: -15px
+ 		margin-right: 0px;
+ 		margin-left: 0px
  	}
  }
  @media (min-width:768px) {
@@ -541,8 +541,8 @@
  		padding-left: 15px
  	}
  	.row {
- 		margin-right: -15px;
- 		margin-left: -15px
+ 		margin-right: 0px;
+ 		margin-left: 0px
  	}
  }
  @media (min-width:992px) {
@@ -557,8 +557,8 @@
  		padding-left: 15px
  	}
  	.row {
- 		margin-right: -15px;
- 		margin-left: -15px
+ 		margin-right: 0px;
+ 		margin-left: 0px
  	}
  }
  @media (min-width:1200px) {
@@ -573,8 +573,8 @@
  		padding-left: 15px
  	}
  	.row {
- 		margin-right: -15px;
- 		margin-left: -15px
+ 		margin-right: 0px;
+ 		margin-left: 0px
  	}
  }
  .no-gutters {
