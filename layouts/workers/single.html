@@ -76,7 +76,7 @@
     <div class="col-lg-4">
     <div class = "row">
       <div class="col">
-        <h3>Parts {{ .Title }} made</h3>
+        <h3>{{ .Title }} helped make:</h3>
         <div class="list-group guest_episode_list">
             {{ $.Scratch.Set "worker-name" .File.BaseFileName }}
             {{ range $page := where $.Site.Pages "Type" "parts" }}
