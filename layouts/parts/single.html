@@ -12,9 +12,9 @@
       <div class="col-md-3">
       {{- if and (isset .Params "thumbnail") (ne .Params.image "") -}}
         {{- if (eq (slicestr .Params.image 0 4) "http") -}}
-          <img alt="{{ .Title }}" src="{{ .Params.image }}" class="img-fluid episode_image"/>
+          <a href="{{ .Params.image }}"><img alt="{{ .Title }}" src="{{ .Params.thumbnail }}" class="img-fluid episode_image"/></a>
           {{- else -}}
-          <img alt="{{ .Title }}" src="{{ .Params.image | absURL}}" class="img-fluid episode_image"/>
+          <a href="{{ .Params.image }}"><img alt="{{ .Title }}" src="{{ .Params.thumbnail | absURL}}" class="img-fluid episode_image"/></a>
         {{- end -}}
         {{- else -}}
         <img alt="{{ .Title }}" src="{{ "img/guest/default-guest.png" | absURL }}" class="img-fluid episode_image"/>
